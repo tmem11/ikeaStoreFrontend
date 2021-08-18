@@ -1,0 +1,27 @@
+<table class="table table-bordered  table-hover ">
+
+  <thead >
+  <th>Name</th>
+  <th></th>
+
+
+  </thead>
+
+  <tbody>
+  <tr (click)="editData(item)" *ngFor="let item of service.types">
+
+
+    <td>
+
+
+      {{item.name}}
+    </td>
+    <td (click)="delete(item._id)"><span class="btn btn-danger ">Delete</span></td>
+
+
+  </tr>
+  </tbody>
+
+
+</table>
+

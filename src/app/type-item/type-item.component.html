@@ -1,0 +1,12 @@
+<form  ngForm="form" (submit)="submit()">
+
+  <div class="form-group">
+    <input type="hidden" name="id" [(ngModel)]="service.type._id" >
+    <label for="name">Name :</label>
+    <input type="text" [(ngModel)]="service.type.name" name="name" class="form-control">
+  </div>
+
+  <input type="submit" class="btn btn-outline-success btn-lg " value="save">
+
+</form>
+
