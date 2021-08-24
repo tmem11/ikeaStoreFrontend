@@ -15,7 +15,7 @@ export class TypeItemComponent implements OnInit {
   ngOnInit(): void {
 
     this.service.type = {
-      name: 'the type name',
+      name: '',
       _id: "",
     };
   }
@@ -23,8 +23,8 @@ export class TypeItemComponent implements OnInit {
   submit(){
     if(this.service.type._id==""){
       this.service.postType().subscribe(res => {
-          this.service.getAllTypes();
-          
+
+
         },
         error => {
           console.log('error');
@@ -41,9 +41,12 @@ export class TypeItemComponent implements OnInit {
 }
 
 
-  newType() {
+  resetForm() {
+    this.service.type = {
+      name: 'the type name',
+      _id: "",
+    };
 
   }
-
 
 }

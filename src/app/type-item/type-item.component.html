@@ -1,12 +1,26 @@
-<form  ngForm="form" (submit)="submit()">
+<!--<form  ngForm="form" (submit)="submit()">-->
 
-  <div class="form-group">
-    <input type="hidden" name="id" [(ngModel)]="service.type._id" >
-    <label for="name">Name :</label>
-    <input type="text" [(ngModel)]="service.type.name" name="name" class="form-control">
-  </div>
+<!--  <div class="form-group">-->
+<!--    <input type="hidden" name="id" [(ngModel)]="service.type._id" >-->
+<!--    <label for="name">Name :</label>-->
+<!--    <input type="text" [(ngModel)]="service.type.name" name="name" class="form-control">-->
+<!--  </div>-->
+<!--  <input type="hidden" name="id" [(ngModel)]="service.type._id" >-->
 
-  <input type="submit" class="btn btn-outline-success btn-lg " value="save">
+<!--  <input type="submit" class="btn btn-outline-success btn-lg " value="save">-->
+<!--  <input type="button" (click)="resetForm()" class="btn btn-outline-success btn-lg " value="reset">-->
 
-</form>
+
+
+
+<!--</form>-->
+
+<mat-card>
+<mat-form-field appearance="fill">
+  <mat-label>enter the type</mat-label>
+  <input matInput [(ngModel)]="service.type.name" >
+</mat-form-field>
+  <button (click)="submit()" mat-raised-button color="primary">Save</button>
+
+</mat-card>
 
