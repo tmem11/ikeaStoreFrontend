@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Type} from '../type.model';
 import {TypeService} from '../type.service';
 import {NgForm} from '@angular/forms';
+import {MatDialogRef} from "@angular/material/dialog";
+
 
 @Component({
   selector: 'app-type-item',
@@ -10,7 +12,7 @@ import {NgForm} from '@angular/forms';
 })
 export class TypeItemComponent implements OnInit {
 
-  constructor(public service: TypeService) { }
+  constructor(public service: TypeService,public matDialogRef :MatDialogRef<TypeItemComponent>) { }
 
   ngOnInit(): void {
 
@@ -29,7 +31,9 @@ export class TypeItemComponent implements OnInit {
         error => {
           console.log('error');
         });
+      this.onClose()
     }
+
     else {
       this.service.putType().subscribe(res => {
           this.service.getAllTypes();
@@ -47,6 +51,10 @@ export class TypeItemComponent implements OnInit {
       _id: "",
     };
 
+  }
+  onClose(){
+    this.resetForm()
+    this.matDialogRef.close()
   }
 
 }

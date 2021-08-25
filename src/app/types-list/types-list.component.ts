@@ -7,6 +7,10 @@ import {Observable, Subscription} from "rxjs";
 import {TypeTableItem} from "../type-table/type-table-datasource";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {MatDialog,MatDialogConfig} from "@angular/material/dialog";
+import {TypeItemComponent} from "../type-item/type-item.component";
+
+
 
 
 
@@ -24,7 +28,7 @@ export class TypesListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(public service: TypeService) {
+  constructor(public service: TypeService ,private dialog:MatDialog) {
     this.subscription=this.service.getNotification().subscribe(data=>{
       if(data)
       {
@@ -70,4 +74,12 @@ export class TypesListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  onAddType() {
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.autoFocus=true;
+    dialogConfig.width="30%";
+    this.dialog.open(TypeItemComponent,dialogConfig);
+
+
+  }
 }
