@@ -26,6 +26,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {TypeService} from "./type.service";
 import { TableExampleComponent } from './table-example/table-example.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 // @ts-ignore
@@ -54,10 +55,13 @@ import { TableExampleComponent } from './table-example/table-example.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+  MatDialogModule,
 
 
-  ],
+
+],
   providers: [TypeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[TypeItemComponent]
 })
 export class AppModule { }
