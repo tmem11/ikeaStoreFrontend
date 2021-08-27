@@ -45,13 +45,21 @@ export class TypeService {
     })))
   }
   putType(){
-    return this.http.put(this.url +"/"+ this.type._id, this.type);
+    return this.http.put(this.url +"/"+ this.type._id, this.type).pipe(map(data=>{
+      this.sendNotification(true)
+
+    }));
   }
   deleteType(id){
     return this.http.delete(this.url +"/"+ id).pipe(map(data=>{
       this.sendNotification(true)
 
     }));
+  }
+  fillForm(other:Type){
+    this.type._id=other._id
+    this.type.name=other.name
+
   }
 
   sendNotification(value:any)
