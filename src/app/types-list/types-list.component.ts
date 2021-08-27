@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {TypeService} from '../type.service';
 import {Type} from '../type.model';
 import {MatTableDataSource} from "@angular/material/table";
@@ -28,7 +28,7 @@ export class TypesListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(public service: TypeService ,private dialog:MatDialog) {
+  constructor(public service: TypeService ,private dialog:MatDialog ) {
     this.subscription=this.service.getNotification().subscribe(data=>{
       if(data)
       {
@@ -53,7 +53,6 @@ export class TypesListComponent implements OnInit {
   delete(object:Type) {
     let id=object._id
   this.service.deleteType(id).subscribe(res=>{
-    //this.service.getAllTypes();
 
   })
 
@@ -78,8 +77,21 @@ export class TypesListComponent implements OnInit {
     const dialogConfig=new MatDialogConfig();
     dialogConfig.autoFocus=true;
     dialogConfig.width="30%";
-    this.dialog.open(TypeItemComponent,dialogConfig);
+    this.dialog.open(TypeItemComponent, {data:new Type()});
 
 
   }
+
+  onEdit(object:Type) {
+
+
+
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.autoFocus=true;
+    dialogConfig.width="30%";
+    this.dialog.open(TypeItemComponent,{data:object});
+
+
+  }
+
 }
