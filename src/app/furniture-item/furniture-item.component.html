@@ -1,0 +1,37 @@
+
+
+
+
+<mat-card>
+<mat-form-field appearance="fill">
+  <mat-label>enter the code Number</mat-label>
+  <input matInput [(ngModel)]="service.furniture.codeNumber" >
+</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>enter the color</mat-label>
+    <input matInput [(ngModel)]="service.furniture.color" >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>enter the measurs</mat-label>
+    <input matInput [(ngModel)]="service.furniture.measurs" >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>enter the price</mat-label>
+    <input matInput [(ngModel)]="service.furniture.price" >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>List of Types</mat-label>
+    <mat-select [(ngModel)]="service.furniture.types"  >
+      <mat-option *ngFor="let type of types" [value]="type._id"  >{{type.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <!--<mat-form-field>-->
+<!--  <input  type="hidden"  [(ngModel)]="service.type._id" >-->
+<!--</mat-form-field>-->
+
+<button (click)="submit()" mat-raised-button color="primary">Add</button>
+
+</mat-card>
+

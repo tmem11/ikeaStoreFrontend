@@ -1,0 +1,19 @@
+mat-table
+table{
+  width: 100%;
+
+
+}
+.example-container{
+  width: 100%;
+  margin-left: 50px;
+
+}
+mat-form-field,
+input {
+  margin-left: 50px;
+}
+
+.addButton{
+  margin-left: 50px;
+}
