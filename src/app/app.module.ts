@@ -27,6 +27,19 @@ import { MatSortModule } from '@angular/material/sort';
 import {TypeService} from "./type.service";
 import { TableExampleComponent } from './table-example/table-example.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {RouterModule, Routes} from "@angular/router";
+import { FurnitureItemComponent } from './furniture-item/furniture-item.component';
+import { FurnitureListComponent } from './furniture-list/furniture-list.component';
+
+const appRoutes :Routes=[
+  {path: 'home',component:TypesListComponent},
+  {path: 'test',component:TypeTableComponent},
+  {path: '',component:TypesListComponent},
+  {path: 'furniture',component:FurnitureListComponent},
+
+
+
+];
 
 
 // @ts-ignore
@@ -37,7 +50,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     TypeItemComponent,
     HeaderComponent,
     TypeTableComponent,
-    TableExampleComponent
+    TableExampleComponent,
+    FurnitureItemComponent,
+    FurnitureListComponent
   ],
   imports: [
     BrowserModule,
@@ -55,11 +70,11 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-  MatDialogModule,
+    MatDialogModule,
+    RouterModule.forRoot(appRoutes),
 
 
-
-],
+  ],
   providers: [TypeService],
   bootstrap: [AppComponent],
   entryComponents:[TypeItemComponent]
